@@ -25,7 +25,9 @@ app.get('/projects', (req, res) => {
     res.render('projects'); // Rendering about.ejs in the views folder
 });
 
-
+app.get('/community', (req, res) => {
+    res.render('community'); // Rendering about.ejs in the views folder
+});
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).send('Something went wrong!');
