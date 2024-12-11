@@ -13,6 +13,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
+const dbURL = process.env.dbURL
+
+mongoose.connect(dbURL)
+.then(() => {
+    console.log('db connected successfully')
+})
+.catch((err) => {
+   console.log(err)
+})
+
 app.get('/', (req, res)=>{
     res.sendFile(path.join(__dirname, 'index.html'));
 })
